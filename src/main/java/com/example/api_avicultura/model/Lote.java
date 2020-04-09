@@ -19,25 +19,34 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Lote {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @OneToOne()
     @JoinColumn(name = "proprietario_id")
     private Produtor proprietario;
     
+    private String identificacao;
     private Float peso_inicial;
     private Float racao_inicial;
-    private int  q_aves_inicial;
-    private int  q_aves_final;
-    private int  q_aves_abatidas;
-    private int  q_aves_mortas;
+    private int q_aves_inicial;
+    private int q_aves_final;
+    private int q_aves_abatidas;
+    private int q_aves_mortas;
 
     public Lote() {
     }
 
+    public String getIdentificacao() {
+        return identificacao;
+    }
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
+    }
+    
     
     public Long getId() {
         return id;
@@ -102,9 +111,5 @@ public class Lote {
     public void setQ_aves_mortas(int q_aves_mortas) {
         this.q_aves_mortas = q_aves_mortas;
     }
-    
-    
-    
-    
-    
+
 }
