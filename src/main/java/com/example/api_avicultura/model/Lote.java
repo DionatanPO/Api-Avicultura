@@ -5,7 +5,7 @@
  */
 package com.example.api_avicultura.model;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +33,9 @@ public class Lote {
     private Pesagem pesagem;
     
     private String identificacao;
-    private Float peso_inicial;
-    private Float racao_inicial;
+    private Double peso_inicial;
+    private Double racao_inicial;
+    private Double racao_final;
     private int q_aves_inicial;
     private int q_aves_final;
     private int q_aves_abatidas;
@@ -77,21 +78,31 @@ public class Lote {
         this.proprietario = proprietario;
     }
 
-    public Float getPeso_inicial() {
+    public Double getPeso_inicial() {
         return peso_inicial;
     }
 
-    public void setPeso_inicial(Float peso_inicial) {
+    public void setPeso_inicial(Double peso_inicial) {
         this.peso_inicial = peso_inicial;
     }
 
-    public Float getRacao_inicial() {
+    public Double getRacao_inicial() {
         return racao_inicial;
     }
 
-    public void setRacao_inicial(Float racao_inicial) {
+    public void setRacao_inicial(Double racao_inicial) {
         this.racao_inicial = racao_inicial;
     }
+
+    public Double getRacao_final() {
+        return racao_final;
+    }
+
+    public void setRacao_final(Double racao_final) {
+        this.racao_final = racao_final;
+    }
+
+
 
     public int getQ_aves_inicial() {
         return q_aves_inicial;
