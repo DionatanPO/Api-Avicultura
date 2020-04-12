@@ -6,6 +6,7 @@
 package com.example.api_avicultura.model;
 
 
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,13 +34,17 @@ public class Lote {
     private Pesagem pesagem;
     
     private String identificacao;
-    private Double peso_inicial;
-    private Double racao_inicial;
-    private Double racao_final;
-    private int q_aves_inicial;
-    private int q_aves_final;
-    private int q_aves_abatidas;
-    private int q_aves_mortas;
+    private Float peso_inicial;
+    private Float peso_final;
+    private Float racao_inicial;
+    private Float racao_final;
+    private Date data_abertura;
+    private Date data_abate;
+    private int  q_aves_inicial;
+    private int  q_aves_final;
+    private int  q_aves_abatidas;
+    private int  q_aves_mortas;
+    
 
     public Lote() {
     }
@@ -78,29 +83,54 @@ public class Lote {
         this.proprietario = proprietario;
     }
 
-    public Double getPeso_inicial() {
+    public Float getPeso_inicial() {
         return peso_inicial;
     }
 
-    public void setPeso_inicial(Double peso_inicial) {
+    public void setPeso_inicial(Float peso_inicial) {
         this.peso_inicial = peso_inicial;
     }
 
-    public Double getRacao_inicial() {
+    public Float getPeso_final() {
+        return peso_final;
+    }
+
+    public void setPeso_final(Float peso_final) {
+        this.peso_final = peso_final;
+    }
+
+    public Float getRacao_inicial() {
         return racao_inicial;
     }
 
-    public void setRacao_inicial(Double racao_inicial) {
+    public void setRacao_inicial(Float racao_inicial) {
         this.racao_inicial = racao_inicial;
     }
 
-    public Double getRacao_final() {
+    public Float getRacao_final() {
         return racao_final;
     }
 
-    public void setRacao_final(Double racao_final) {
+    public void setRacao_final(Float racao_final) {
         this.racao_final = racao_final;
     }
+
+    public Date getData_abertura() {
+        return data_abertura;
+    }
+
+    public void setData_abertura(Date data_abertura) {
+        this.data_abertura = data_abertura;
+    }
+
+    public Date getData_abate() {
+        return data_abate;
+    }
+
+    public void setData_abate(Date data_abate) {
+        this.data_abate = data_abate;
+    }
+
 
 
 
