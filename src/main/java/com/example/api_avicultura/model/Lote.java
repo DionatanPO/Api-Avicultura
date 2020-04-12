@@ -28,6 +28,10 @@ public class Lote {
     @JoinColumn(name = "proprietario_id")
     private Produtor proprietario;
     
+     @OneToOne()
+    @JoinColumn(name = "pesagem_id")
+    private Pesagem pesagem;
+    
     private String identificacao;
     private Float peso_inicial;
     private Float racao_inicial;
@@ -39,6 +43,15 @@ public class Lote {
     public Lote() {
     }
 
+    public Pesagem getPesagem() {
+        return pesagem;
+    }
+
+    public void setPesagem(Pesagem pesagem) {
+        this.pesagem = pesagem;
+    }
+    
+    
     public String getIdentificacao() {
         return identificacao;
     }
