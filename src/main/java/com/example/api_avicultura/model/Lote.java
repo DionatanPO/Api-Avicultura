@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Lote {
-
+//djdjdj
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
