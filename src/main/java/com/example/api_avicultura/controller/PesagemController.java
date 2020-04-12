@@ -1,7 +1,7 @@
 package com.example.api_avicultura.controller;
 
-import com.example.api_avicultura.model.Lote;
-import com.example.api_avicultura.service.LoteService;
+import com.example.api_avicultura.model.Pesagem;
+import com.example.api_avicultura.service.PesagemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,53 +10,53 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/lote/")
-public class LoteController {
+@RequestMapping(value = "/pesagem/")
+public class PesagemController {
 
     @Autowired
-    LoteService loteService;
+    PesagemService pesagemService;
 
     @PostMapping()
-    public ResponseEntity<Lote> cadastrar(@RequestBody Lote lote) {
+    public ResponseEntity<Pesagem> cadastrar(@RequestBody Pesagem pesagem) {
 
-        Lote loteSalvo = loteService.salvar(lote);
+        Pesagem pesagemSalvo = pesagemService.salvar(pesagem);
 
-        return new ResponseEntity<>(loteSalvo, HttpStatus.CREATED);
+        return new ResponseEntity<>(pesagemSalvo, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "{id}")
-    public ResponseEntity<Lote> editar(@RequestBody Lote lote) {
+    public ResponseEntity<Pesagem> editar(@RequestBody Pesagem pesagem) {
 
-        Lote loteSalvo = loteService.salvar(lote);
+        Pesagem pesagemSalvo = pesagemService.salvar(pesagem);
 
-        return ResponseEntity.ok(loteSalvo);
+        return ResponseEntity.ok(pesagemSalvo);
     }
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity deletar(@PathVariable Long id) {
 
-        Lote lote = new Lote();
-        lote.setId(id);
-        loteService.delete(lote);
+        Pesagem pesagem = new Pesagem();
+        pesagem.setId(id);
+        pesagemService.delete(pesagem);
 
         return ResponseEntity.ok().build();
 
     }
 
     @GetMapping(value = "todos")
-    public ResponseEntity<List<Lote>> mostrarTodos() {
+    public ResponseEntity<List<Pesagem>> mostrarTodos() {
 
-        List loteList = loteService.buscarTodos();
+        List pesagemList = pesagemService.buscarTodos();
 
-        return new ResponseEntity<>(loteList, HttpStatus.OK);
+        return new ResponseEntity<>(pesagemList, HttpStatus.OK);
     }
 
 
 
     @GetMapping(value = "{id}")
-    public ResponseEntity<Lote> buscaPorID(@PathVariable Long id) {
+    public ResponseEntity<Pesagem> buscaPorID(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(loteService.buscaPorID(id), HttpStatus.OK);
+            return new ResponseEntity<>(pesagemService.buscaPorID(id), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
