@@ -1,5 +1,6 @@
 package com.example.api_avicultura.model;
 
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,11 +19,14 @@ public class Pesagem {
     @JoinColumn(name = "lote_id")
     private Lote lote;
     
-    private int n_aves_pesadas;
-    private Double peso_medio;
+     private int n_aves_pesadas;
+    private int n_aves_fora_media;
+    private int n_aves_dentro_media;
+    private Date data_pesagem;
     private Double peso_extremo_superior;
     private Double peso_extremo_inferior;
-    private Double variacao;
+    private Double variacao_peso_medio;
+    private Double peso_medio;
     private Double uniformidade;
 
     public Pesagem() {
@@ -88,13 +92,39 @@ public class Pesagem {
         this.peso_extremo_inferior = peso_extremo_inferior;
     }
 
-    public Double getVariacao() {
-        return variacao;
+    public int getN_aves_fora_media() {
+        return n_aves_fora_media;
     }
 
-    public void setVariacao(Double variacao) {
-        this.variacao = variacao;
+    public void setN_aves_fora_media(int n_aves_fora_media) {
+        this.n_aves_fora_media = n_aves_fora_media;
     }
+
+    public int getN_aves_dentro_media() {
+        return n_aves_dentro_media;
+    }
+
+    public void setN_aves_dentro_media(int n_aves_dentro_media) {
+        this.n_aves_dentro_media = n_aves_dentro_media;
+    }
+
+    public Date getData_pesagem() {
+        return data_pesagem;
+    }
+
+    public void setData_pesagem(Date data_pesagem) {
+        this.data_pesagem = data_pesagem;
+    }
+
+    public Double getVariacao_peso_medio() {
+        return variacao_peso_medio;
+    }
+
+    public void setVariacao_peso_medio(Double variacao_peso_medio) {
+        this.variacao_peso_medio = variacao_peso_medio;
+    }
+
+
 
 
 }
