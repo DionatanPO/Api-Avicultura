@@ -18,8 +18,8 @@ public class Pesagem {
     @OneToOne()
     @JoinColumn(name = "lote_id")
     private Lote lote;
-    
-     private int n_aves_pesadas;
+
+    private int n_aves_pesadas;
     private int n_aves_fora_media;
     private int n_aves_dentro_media;
     private Date data_pesagem;
@@ -41,7 +41,6 @@ public class Pesagem {
         this.uniformidade = uniformidade;
     }
 
-    
     public Lote getLote() {
         return lote;
     }
@@ -49,8 +48,6 @@ public class Pesagem {
     public void setLote(Lote lote) {
         this.lote = lote;
     }
-
-   
 
     public Long getId() {
         return id;
@@ -123,8 +120,5 @@ public class Pesagem {
     public void setVariacao_peso_medio(Double variacao_peso_medio) {
         this.variacao_peso_medio = variacao_peso_medio;
     }
-
-
-
 
 }
