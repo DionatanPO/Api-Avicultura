@@ -5,7 +5,6 @@
  */
 package com.example.api_avicultura.model;
 
-
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +20,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Lote {
 //djdjdj
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,8 +28,7 @@ public class Lote {
     @OneToOne()
     @JoinColumn(name = "proprietario_id")
     private Produtor proprietario;
-   
-    
+
     private String identificacao;
     private Float peso_inicial;
     private Float peso_final;
@@ -37,18 +36,23 @@ public class Lote {
     private Float racao_final;
     private Date data_abertura;
     private Date data_abate;
-    private int  q_aves_inicial;
-    private int  q_aves_final;
-    private int  q_aves_abatidas;
-    private int  q_aves_mortas;
-    
+    private int q_aves_inicial;
+    private int q_aves_final;
+    private int q_aves_abatidas;
+    private int q_aves_mortas;
+    private Double uniformidade_final;
 
     public Lote() {
     }
 
+    public Double getUniformidade_final() {
+        return uniformidade_final;
+    }
 
-    
-    
+    public void setUniformidade_final(Double uniformidade_final) {
+        this.uniformidade_final = uniformidade_final;
+    }
+
     public String getIdentificacao() {
         return identificacao;
     }
@@ -56,8 +60,7 @@ public class Lote {
     public void setIdentificacao(String identificacao) {
         this.identificacao = identificacao;
     }
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -121,9 +124,6 @@ public class Lote {
     public void setData_abate(Date data_abate) {
         this.data_abate = data_abate;
     }
-
-
-
 
     public int getQ_aves_inicial() {
         return q_aves_inicial;
