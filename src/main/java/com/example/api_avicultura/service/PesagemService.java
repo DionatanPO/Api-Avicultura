@@ -32,7 +32,7 @@ public class PesagemService {
         return pesagemRepository.findAll();
     }
     public List buscarLote(Lote lote) {
-        return pesagemRepository.findByLote_idContaining(String.valueOf(lote.getId()));
+        return pesagemRepository.findByLote_id(lote.getId());
     }
 
 }
