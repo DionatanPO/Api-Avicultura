@@ -1,5 +1,6 @@
 package com.example.api_avicultura.service;
 
+import com.example.api_avicultura.model.Lote;
 import com.example.api_avicultura.model.Pesagem;
 import com.example.api_avicultura.repository.PesagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class PesagemService {
 
     public List buscarTodos() {
         return pesagemRepository.findAll();
+    }
+    public List buscarLote(Lote lote) {
+        return pesagemRepository.findByLote_idContaining(lote.getId());
     }
 
 }
