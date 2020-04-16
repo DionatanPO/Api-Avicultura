@@ -64,9 +64,9 @@ public class PesagemController {
     }
    @GetMapping(value = "loteid/")
     @ResponseBody
-    public ResponseEntity<List<Lote>> buscaNome(@RequestParam Long id) {
+    public ResponseEntity<List<Lote>> buscaNome(@RequestParam String id) {
         Lote lote = new Lote();
-        lote.setId(id);
+        lote.setId(Long.parseLong(id));
         List pesagemList = pesagemService.buscarLote(lote);
 
         return new ResponseEntity<>(pesagemList, HttpStatus.OK);
