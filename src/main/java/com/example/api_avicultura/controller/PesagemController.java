@@ -1,5 +1,6 @@
 package com.example.api_avicultura.controller;
 
+import com.example.api_avicultura.model.Lote;
 import com.example.api_avicultura.model.Pesagem;
 import com.example.api_avicultura.service.PesagemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,14 @@ public class PesagemController {
             return ResponseEntity.notFound().build();
         }
     }
+   @GetMapping(value = "loteid/")
+    @ResponseBody
+    public ResponseEntity<List<Lote>> buscaNome(@RequestParam Long id) {
+        Lote lote = new Lote();
+        lote.setId(id);
+        List pesagemList = pesagemService.buscarLote(lote);
 
+        return new ResponseEntity<>(pesagemList, HttpStatus.OK);
+    }
 
 }
