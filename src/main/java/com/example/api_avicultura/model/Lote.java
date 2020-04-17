@@ -6,6 +6,7 @@
 package com.example.api_avicultura.model;
 
 import java.sql.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class Lote {
     @JoinColumn(name = "proprietario_id")
     private Produtor proprietario;
     
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "indice_id")
     private Indice indice;
     
