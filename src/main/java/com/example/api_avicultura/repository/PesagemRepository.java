@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PesagemRepository extends JpaRepository<Pesagem, Long> {
 
-    List<Pesagem> findByLote_id(Long id);
+    List<Pesagem> findByLote_id(Long lote_id);
 
 
 }

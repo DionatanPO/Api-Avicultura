@@ -30,35 +30,19 @@ public class Lote {
     private Produtor proprietario;
 
     private String identificacao;
-    private Float peso_inicial;
-    private Float peso_final;
-    private Float racao_inicial;
-    private Float racao_final;
+    private float peso_inicial;
+    private float peso_final;
+    private float racao_inicial;
+    private float racao_final;
     private Date data_abertura;
     private Date data_abate;
     private int q_aves_inicial;
     private int q_aves_final;
     private int q_aves_abatidas;
     private int q_aves_mortas;
-    private Double uniformidade_final;
+
 
     public Lote() {
-    }
-
-    public Double getUniformidade_final() {
-        return uniformidade_final;
-    }
-
-    public void setUniformidade_final(Double uniformidade_final) {
-        this.uniformidade_final = uniformidade_final;
-    }
-
-    public String getIdentificacao() {
-        return identificacao;
-    }
-
-    public void setIdentificacao(String identificacao) {
-        this.identificacao = identificacao;
     }
 
     public Long getId() {
@@ -77,35 +61,43 @@ public class Lote {
         this.proprietario = proprietario;
     }
 
-    public Float getPeso_inicial() {
+    public String getIdentificacao() {
+        return identificacao;
+    }
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
+    }
+
+    public float getPeso_inicial() {
         return peso_inicial;
     }
 
-    public void setPeso_inicial(Float peso_inicial) {
+    public void setPeso_inicial(float peso_inicial) {
         this.peso_inicial = peso_inicial;
     }
 
-    public Float getPeso_final() {
+    public float getPeso_final() {
         return peso_final;
     }
 
-    public void setPeso_final(Float peso_final) {
+    public void setPeso_final(float peso_final) {
         this.peso_final = peso_final;
     }
 
-    public Float getRacao_inicial() {
+    public float getRacao_inicial() {
         return racao_inicial;
     }
 
-    public void setRacao_inicial(Float racao_inicial) {
+    public void setRacao_inicial(float racao_inicial) {
         this.racao_inicial = racao_inicial;
     }
 
-    public Float getRacao_final() {
+    public float getRacao_final() {
         return racao_final;
     }
 
-    public void setRacao_final(Float racao_final) {
+    public void setRacao_final(float racao_final) {
         this.racao_final = racao_final;
     }
 
@@ -156,5 +148,7 @@ public class Lote {
     public void setQ_aves_mortas(int q_aves_mortas) {
         this.q_aves_mortas = q_aves_mortas;
     }
+
+
 
 }

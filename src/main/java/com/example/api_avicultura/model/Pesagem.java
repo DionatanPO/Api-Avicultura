@@ -23,30 +23,14 @@ public class Pesagem {
     private int n_aves_fora_media;
     private int n_aves_dentro_media;
     private Date data_pesagem;
-    private Double peso_extremo_superior;
-    private Double peso_extremo_inferior;
-    private Double variacao_peso_medio;
-    private Double peso_medio;
-    private Double uniformidade;
+    private double peso_extremo_superior;
+    private double peso_extremo_inferior;
+    private double variacao_peso_medio;
+    private double peso_medio;
+    private double uniformidade;
 
     public Pesagem() {
 
-    }
-
-    public Double getUniformidade() {
-        return uniformidade;
-    }
-
-    public void setUniformidade(Double uniformidade) {
-        this.uniformidade = uniformidade;
-    }
-
-    public Lote getLote() {
-        return lote;
-    }
-
-    public void setLote(Lote lote) {
-        this.lote = lote;
     }
 
     public Long getId() {
@@ -57,36 +41,20 @@ public class Pesagem {
         this.id = id;
     }
 
+    public Lote getLote() {
+        return lote;
+    }
+
+    public void setLote(Lote lote) {
+        this.lote = lote;
+    }
+
     public int getN_aves_pesadas() {
         return n_aves_pesadas;
     }
 
     public void setN_aves_pesadas(int n_aves_pesadas) {
         this.n_aves_pesadas = n_aves_pesadas;
-    }
-
-    public Double getPeso_medio() {
-        return peso_medio;
-    }
-
-    public void setPeso_medio(Double peso_medio) {
-        this.peso_medio = peso_medio;
-    }
-
-    public Double getPeso_extremo_superior() {
-        return peso_extremo_superior;
-    }
-
-    public void setPeso_extremo_superior(Double peso_extremo_superior) {
-        this.peso_extremo_superior = peso_extremo_superior;
-    }
-
-    public Double getPeso_extremo_inferior() {
-        return peso_extremo_inferior;
-    }
-
-    public void setPeso_extremo_inferior(Double peso_extremo_inferior) {
-        this.peso_extremo_inferior = peso_extremo_inferior;
     }
 
     public int getN_aves_fora_media() {
@@ -113,12 +81,45 @@ public class Pesagem {
         this.data_pesagem = data_pesagem;
     }
 
-    public Double getVariacao_peso_medio() {
+    public double getPeso_extremo_superior() {
+        return peso_extremo_superior;
+    }
+
+    public void setPeso_extremo_superior(double peso_extremo_superior) {
+        this.peso_extremo_superior = peso_extremo_superior;
+    }
+
+    public double getPeso_extremo_inferior() {
+        return peso_extremo_inferior;
+    }
+
+    public void setPeso_extremo_inferior(double peso_extremo_inferior) {
+        this.peso_extremo_inferior = peso_extremo_inferior;
+    }
+
+    public double getVariacao_peso_medio() {
         return variacao_peso_medio;
     }
 
-    public void setVariacao_peso_medio(Double variacao_peso_medio) {
+    public void setVariacao_peso_medio(double variacao_peso_medio) {
         this.variacao_peso_medio = variacao_peso_medio;
     }
 
+    public double getPeso_medio() {
+        return peso_medio;
+    }
+
+    public void setPeso_medio(double peso_medio) {
+        this.peso_medio = peso_medio;
+    }
+
+    public double getUniformidade() {
+        return uniformidade;
+    }
+
+    public void setUniformidade(double uniformidade) {
+        this.uniformidade = uniformidade;
+    }
+
+   
 }
