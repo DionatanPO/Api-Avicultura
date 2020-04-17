@@ -23,9 +23,6 @@ public class Indice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne()
-    @JoinColumn(name = "lote_id")
-    private Lote lote;
 
     private double uniformidade;
     private double ica;
@@ -44,13 +41,7 @@ public class Indice {
         this.id = id;
     }
 
-    public Lote getLote() {
-        return lote;
-    }
 
-    public void setLote(Lote lote) {
-        this.lote = lote;
-    }
 
     public double getUniformidade() {
         return uniformidade;

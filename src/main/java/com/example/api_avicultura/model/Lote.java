@@ -28,7 +28,11 @@ public class Lote {
     @OneToOne()
     @JoinColumn(name = "proprietario_id")
     private Produtor proprietario;
-
+    
+    @OneToOne()
+    @JoinColumn(name = "indice_id")
+    private Indice indice;
+    
     private String identificacao;
     private float peso_inicial;
     private float peso_final;
@@ -45,6 +49,15 @@ public class Lote {
     public Lote() {
     }
 
+    public Indice getIndice() {
+        return indice;
+    }
+
+    public void setIndice(Indice indice) {
+        this.indice = indice;
+    }
+
+    
     public Long getId() {
         return id;
     }
