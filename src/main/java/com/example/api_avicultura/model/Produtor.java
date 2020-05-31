@@ -23,10 +23,18 @@ public class Produtor {
     
     private String nome;
     private String nome_propriedade;
-    private String email;
+    private String cod_identificacao;
     private String senha;
 
     public Produtor() {
+    }
+
+    public String getCod_identificacao() {
+        return cod_identificacao;
+    }
+
+    public void setCod_identificacao(String cod_identificacao) {
+        this.cod_identificacao = cod_identificacao;
     }
 
 
@@ -54,13 +62,6 @@ public class Produtor {
         this.nome_propriedade = nome_propriedade;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getSenha() {
         return senha;
