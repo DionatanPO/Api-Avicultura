@@ -34,6 +34,7 @@ public class Lote {
     @JoinColumn(name = "indice_id")
     private Indice indice;
     
+    private String tipo;
     private String identificacao;
     private float peso_inicial;
     private float peso_final;
@@ -48,6 +49,14 @@ public class Lote {
 
 
     public Lote() {
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Indice getIndice() {
