@@ -1,5 +1,6 @@
 package com.example.api_avicultura.controller;
 
+import com.example.api_avicultura.model.Lote;
 import com.example.api_avicultura.model.Ovo;
 import com.example.api_avicultura.service.OvoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +15,30 @@ import java.util.List;
 public class OvoController {
 
     @Autowired
-    OvoService proprietarioService;
+    OvoService ovoService;
 
     @PostMapping()
-    public ResponseEntity<Ovo> cadastrar(@RequestBody Ovo proprietario) {
+    public ResponseEntity<Ovo> cadastrar(@RequestBody Ovo ovo) {
 
-        Ovo proprietarioSalvo = proprietarioService.salvar(proprietario);
+        Ovo ovoSalvo = ovoService.salvar(ovo);
 
-        return new ResponseEntity<>(proprietarioSalvo, HttpStatus.CREATED);
+        return new ResponseEntity<>(ovoSalvo, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "{id}")
-    public ResponseEntity<Ovo> editar(@RequestBody Ovo proprietario) {
+    public ResponseEntity<Ovo> editar(@RequestBody Ovo ovo) {
 
-        Ovo proprietarioSalvo = proprietarioService.salvar(proprietario);
+        Ovo ovoSalvo = ovoService.salvar(ovo);
 
-        return ResponseEntity.ok(proprietarioSalvo);
+        return ResponseEntity.ok(ovoSalvo);
     }
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity deletar(@PathVariable Long id) {
 
-        Ovo proprietario = new Ovo();
-        proprietario.setId(id);
-        proprietarioService.delete(proprietario);
+        Ovo ovo = new Ovo();
+        ovo.setId(id);
+        ovoService.delete(ovo);
 
         return ResponseEntity.ok().build();
 
@@ -46,9 +47,9 @@ public class OvoController {
     @GetMapping(value = "todos")
     public ResponseEntity<List<Ovo>> mostrarTodos() {
 
-        List proprietarioList = proprietarioService.buscarTodos();
+        List ovoList = ovoService.buscarTodos();
 
-        return new ResponseEntity<>(proprietarioList, HttpStatus.OK);
+        return new ResponseEntity<>(ovoList, HttpStatus.OK);
     }
 
 
@@ -56,12 +57,20 @@ public class OvoController {
     @GetMapping(value = "{id}")
     public ResponseEntity<Ovo> buscaPorID(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(proprietarioService.buscaPorID(id), HttpStatus.OK);
+            return new ResponseEntity<>(ovoService.buscaPorID(id), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
     }
 
 
+   @GetMapping(value = "loteid/")
+    @ResponseBody
+    public ResponseEntity<List<Lote>> buscaLote(@RequestParam Long lote_id) {
+        Lote lote = new Lote();
+        lote.setId(lote_id);
+        List ovoList = ovoService.buscarLote(lote);
 
+        return new ResponseEntity<>(ovoList, HttpStatus.OK);
+    }
 }
