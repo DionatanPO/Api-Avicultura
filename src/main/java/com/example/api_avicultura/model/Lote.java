@@ -38,6 +38,7 @@ public class Lote {
     private String identificacao;
     private float peso_inicial;
     private float peso_final;
+    private float peso_medio;
     private float racao_inicial;
     private float racao_final;
     private Date data_abertura;
@@ -49,6 +50,14 @@ public class Lote {
 
 
     public Lote() {
+    }
+
+    public float getPeso_medio() {
+        return peso_medio;
+    }
+
+    public void setPeso_medio(float peso_medio) {
+        this.peso_medio = peso_medio;
     }
 
     public String getTipo() {
