@@ -28,7 +28,6 @@ public class Vacina {
     private Lote lote;
     
     private String nome_vacina;
-    private String obs;
     private String via_administracao;
     private int n_aves_vacinadas;
     private int idade_dia;
@@ -60,14 +59,6 @@ public class Vacina {
 
     public void setNome_vacina(String nome_vacina) {
         this.nome_vacina = nome_vacina;
-    }
-
-    public String getObs() {
-        return obs;
-    }
-
-    public void setObs(String obs) {
-        this.obs = obs;
     }
 
     public String getVia_administracao() {
