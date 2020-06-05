@@ -31,5 +31,8 @@ public class ProdutorService {
         return produtorRepository.findAll();
     }
 
+    public List buscarvalidacao(Produtor produtor) {
+        return produtorRepository.findByNomeAndCod_identificacao(produtor.getNome(), produtor.getCod_identificacao());
+    }
 
 }

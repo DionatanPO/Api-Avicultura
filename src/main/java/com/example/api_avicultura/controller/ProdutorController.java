@@ -62,6 +62,15 @@ public class ProdutorController {
         }
     }
 
+ @GetMapping(value = "validar/")
+    @ResponseBody
+    public ResponseEntity<List<Produtor>> buscaNome(@RequestParam String nome, String codigoIdentificacao) {
+        Produtor produtor = new Produtor();
+        produtor.setNome(nome);
+        produtor.setCod_identificacao(codigoIdentificacao);
+        List produtorList = proprietarioService.buscarvalidacao(produtor);
 
+        return new ResponseEntity<List<Produtor>>(produtorList, HttpStatus.OK);
+    }
 
 }
