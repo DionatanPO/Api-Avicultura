@@ -23,18 +23,36 @@ public class Produtor {
     
     private String nome;
     private String nome_propriedade;
-    private String cod_identificacao;
+    private String codidentificacao;
+    private String token;
+    private String tipo;
     private String senha;
 
     public Produtor() {
     }
 
-    public String getCod_identificacao() {
-        return cod_identificacao;
+    public String getToken() {
+        return token;
     }
 
-    public void setCod_identificacao(String cod_identificacao) {
-        this.cod_identificacao = cod_identificacao;
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getCodidentificacao() {
+        return codidentificacao;
+    }
+
+    public void setCodidentificacao(String codidentificacao) {
+        this.codidentificacao = codidentificacao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 

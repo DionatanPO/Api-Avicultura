@@ -1,7 +1,10 @@
 package com.example.api_avicultura.controller;
 
 import com.example.api_avicultura.model.Produtor;
+import com.example.api_avicultura.model.Usuario;
+import com.example.api_avicultura.service.ProdutorAuthenticateService;
 import com.example.api_avicultura.service.ProdutorService;
+import com.example.api_avicultura.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,30 +17,37 @@ import java.util.List;
 public class ProdutorController {
 
     @Autowired
-    ProdutorService proprietarioService;
+    ProdutorService produtorService;
+
+    @Autowired
+    ProdutorAuthenticateService authenticateService;
+
+    @Autowired
+    TokenService tokenService;
 
     @PostMapping()
-    public ResponseEntity<Produtor> cadastrar(@RequestBody Produtor proprietario) {
+    public ResponseEntity<Produtor> cadastrar(@RequestBody Produtor produtor) {
 
-        Produtor proprietarioSalvo = proprietarioService.salvar(proprietario);
 
-        return new ResponseEntity<>(proprietarioSalvo, HttpStatus.CREATED);
+        Produtor produtorSalvo = produtorService.salvar(produtor);
+
+        return new ResponseEntity<>(produtorSalvo, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "{id}")
-    public ResponseEntity<Produtor> editar(@RequestBody Produtor proprietario) {
+    public ResponseEntity<Produtor> editar(@RequestBody Produtor produtor) {
 
-        Produtor proprietarioSalvo = proprietarioService.salvar(proprietario);
+        Produtor produtorSalvo = produtorService.salvar(produtor);
 
-        return ResponseEntity.ok(proprietarioSalvo);
+        return ResponseEntity.ok(produtorSalvo);
     }
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity deletar(@PathVariable Long id) {
 
-        Produtor proprietario = new Produtor();
-        proprietario.setId(id);
-        proprietarioService.delete(proprietario);
+        Produtor produtor = new Produtor();
+        produtor.setId(id);
+        produtorService.delete(produtor);
 
         return ResponseEntity.ok().build();
 
@@ -46,31 +56,23 @@ public class ProdutorController {
     @GetMapping(value = "todos")
     public ResponseEntity<List<Produtor>> mostrarTodos() {
 
-        List proprietarioList = proprietarioService.buscarTodos();
+        List produtorList = produtorService.buscarTodos();
 
-        return new ResponseEntity<>(proprietarioList, HttpStatus.OK);
+        return new ResponseEntity<>(produtorList, HttpStatus.OK);
     }
-
-
 
     @GetMapping(value = "{id}")
     public ResponseEntity<Produtor> buscaPorID(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(proprietarioService.buscaPorID(id), HttpStatus.OK);
+            return new ResponseEntity<>(produtorService.buscaPorID(id), HttpStatus.OK);
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
     }
 
- @GetMapping(value = "validar/")
-    @ResponseBody
-    public ResponseEntity<List<Produtor>> buscaNome(@RequestParam String nome, String codigoIdentificacao) {
-        Produtor produtor = new Produtor();
-        produtor.setNome(nome);
-        produtor.setCod_identificacao(codigoIdentificacao);
-        List produtorList = proprietarioService.buscarvalidacao(produtor);
+    @PostMapping(value = "login")
+    public ResponseEntity<Produtor> buscaCodidentificacao(@RequestBody Produtor produtor) {
 
-        return new ResponseEntity<List<Produtor>>(produtorList, HttpStatus.OK);
+        return new ResponseEntity<>(Usuario.produtorTouser(authenticateService.authenticate(produtor), "Bearer"), HttpStatus.OK);
     }
-
 }

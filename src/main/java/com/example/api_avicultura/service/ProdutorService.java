@@ -3,7 +3,6 @@ package com.example.api_avicultura.service;
 import com.example.api_avicultura.model.Produtor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import com.example.api_avicultura.repository.ProdutorRepository;
 
@@ -31,8 +30,5 @@ public class ProdutorService {
         return produtorRepository.findAll();
     }
 
-    public List buscarvalidacao(Produtor produtor) {
-        return produtorRepository.findByNomeAndCod_identificacao(produtor.getNome(), produtor.getCod_identificacao());
-    }
 
 }
