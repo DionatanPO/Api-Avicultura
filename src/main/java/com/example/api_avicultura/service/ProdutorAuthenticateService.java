@@ -20,26 +20,36 @@ import org.springframework.stereotype.Service;
 public class ProdutorAuthenticateService {
 
     private ProdutorRepository produtorRepository;
+    private ProdutorService produtorService;
     private TokenService tokenService;
 
     @Autowired
-    public ProdutorAuthenticateService(ProdutorRepository produtorRepository, TokenService tokenService) {
+      public ProdutorAuthenticateService(ProdutorRepository produtorRepository, ProdutorService produtorService, TokenService tokenService) {
         this.produtorRepository = produtorRepository;
+        this.produtorService = produtorService;
         this.tokenService = tokenService;
     }
 
     public Produtor authenticate(Produtor p) {
-        Produtor produtor = produtorRepository.findByCodidentificacao(p.getCodidentificacao());
-        if (p.getSenha().equals(produtor.getSenha())) {    
-            
-        String tokenGerado = tokenService.genereteToken();
-        produtor.setToken(tokenGerado);
+        Produtor produtor;
+        try {
+            produtor = produtorService.buscaPorCodiidentificacao(p.getCodidentificacao());
+        } catch (Exception e) {
+            produtor = new Produtor();
+        }
+
+        if (p.getSenha().equals(produtor.getSenha())) {
+
+            String tokenGerado = tokenService.genereteToken();
+            produtor.setToken(tokenGerado);
             return produtor;
         } else {
-            return null;
+            return produtor;
         }
 
     }
+
+
 
     private boolean validarToken(String token) {
         try {

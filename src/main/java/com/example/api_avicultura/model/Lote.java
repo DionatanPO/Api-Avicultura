@@ -27,7 +27,7 @@ public class Lote {
     private Long id;
 
     @OneToOne()
-    @JoinColumn(name = "proprietario_id")
+    @JoinColumn(name = "produtor_id")
     private Produtor proprietario;
     
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

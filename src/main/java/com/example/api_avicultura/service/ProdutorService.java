@@ -29,6 +29,9 @@ public class ProdutorService {
     public List buscarTodos() {
         return produtorRepository.findAll();
     }
-
-
+    
+      public Produtor buscaPorCodiidentificacao(String codidentificacao) throws Exception {
+        return produtorRepository.findByCodidentificacao(codidentificacao);
+    }
+    
 }
