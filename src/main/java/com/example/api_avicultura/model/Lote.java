@@ -28,7 +28,7 @@ public class Lote {
 
     @OneToOne()
     @JoinColumn(name = "produtor_id")
-    private Produtor proprietario;
+    private Produtor produtor;
     
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "indice_id")
@@ -86,11 +86,11 @@ public class Lote {
     }
 
     public Produtor getProprietario() {
-        return proprietario;
+        return produtor;
     }
 
-    public void setProprietario(Produtor proprietario) {
-        this.proprietario = proprietario;
+    public void setProprietario(Produtor produtor) {
+        this.produtor = produtor;
     }
 
     public String getIdentificacao() {

@@ -1,6 +1,7 @@
 package com.example.api_avicultura.service;
 
 import com.example.api_avicultura.model.Lote;
+import com.example.api_avicultura.model.Produtor;
 import com.example.api_avicultura.repository.LoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class LoteService {
 
     public List buscarTodos() {
         return loteRepository.findAll();
+    }
+     public List buscarLoteProdutor(Lote lote) {
+        return loteRepository.findByProdutor_id(lote.getProprietario().getId());
     }
 
 }

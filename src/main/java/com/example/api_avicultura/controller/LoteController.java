@@ -1,6 +1,7 @@
 package com.example.api_avicultura.controller;
 
 import com.example.api_avicultura.model.Lote;
+import com.example.api_avicultura.model.Produtor;
 import com.example.api_avicultura.service.LoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -61,6 +62,16 @@ public class LoteController {
             return ResponseEntity.notFound().build();
         }
     }
+   @GetMapping(value = "produtorid/")
+    @ResponseBody
+    public ResponseEntity<List<Lote>> buscaLote(@RequestParam Long produtor_id) {
+      Produtor produtor = new Produtor();
+      produtor.setId(produtor_id);
+      Lote lote = new Lote(); 
+        lote.setProprietario(produtor);
+        List loteList = loteService.buscarLoteProdutor(lote);
 
+        return new ResponseEntity<>(loteList, HttpStatus.OK);
+    }
 
 }
