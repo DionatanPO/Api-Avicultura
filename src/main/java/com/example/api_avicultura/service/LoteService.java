@@ -31,7 +31,8 @@ public class LoteService {
         return loteRepository.findAll();
     }
      public List buscarLoteProdutor(Lote lote) {
-        return loteRepository.findByProdutor_id(lote.getProprietario().getId());
+         String estado = "Ativo";
+        return loteRepository.findByProdutor_idAndEstado(lote.getProdutor().getId(),estado);
     }
 
 }

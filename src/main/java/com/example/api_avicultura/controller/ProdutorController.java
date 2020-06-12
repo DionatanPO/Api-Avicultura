@@ -72,7 +72,12 @@ public class ProdutorController {
 
     @PostMapping(value = "login")
     public ResponseEntity<Produtor> buscaCodidentificacao(@RequestBody Produtor produtor) {
-
-        return new ResponseEntity<>(Usuario.produtorTouser(authenticateService.authenticate(produtor), "Bearer"), HttpStatus.OK);
+        Produtor p;
+         p = Usuario.produtorTouser(authenticateService.authenticate(produtor), "Bearer");
+        if(p!=null){
+            produtorService.salvar(p);
+               p.setSenha("");
+        }
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
 }

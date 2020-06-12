@@ -9,8 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 
 /**
  *
@@ -29,6 +28,7 @@ public class Indice {
     private double consumo_ração;
     private double mortalidade;
     private double viabilidade;
+    private double fator_producao;
 
     public Indice() {
     }
@@ -39,6 +39,14 @@ public class Indice {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public double getFator_producao() {
+        return fator_producao;
+    }
+
+    public void setFator_producao(double fator_producao) {
+        this.fator_producao = fator_producao;
     }
 
 

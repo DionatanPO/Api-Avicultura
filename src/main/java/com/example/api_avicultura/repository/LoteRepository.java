@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoteRepository extends JpaRepository<Lote, Long> {
 
-List<Lote> findByProdutor_id(Long produtor_id);
+List<Lote> findByProdutor_idAndEstado(Long produtor_id, String estado);
 
 }

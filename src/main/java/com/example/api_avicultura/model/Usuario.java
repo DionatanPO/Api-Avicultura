@@ -27,8 +27,16 @@ public class Usuario {
     }
 
     public static Produtor produtorTouser(Produtor produtor, String tipo) {
-        produtor.setSenha("");
+
         produtor.setTipo(tipo);
-           return produtor;
+
+        if (produtor.getToken() == null || produtor.getToken() == "") {
+            produtor.setSenha("");
+            return null;
+        } else {
+
+            return produtor;
+        }
+
     }
 }

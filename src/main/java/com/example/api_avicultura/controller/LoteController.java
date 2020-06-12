@@ -68,7 +68,7 @@ public class LoteController {
       Produtor produtor = new Produtor();
       produtor.setId(produtor_id);
       Lote lote = new Lote(); 
-        lote.setProprietario(produtor);
+        lote.setProdutor(produtor);
         List loteList = loteService.buscarLoteProdutor(lote);
 
         return new ResponseEntity<>(loteList, HttpStatus.OK);

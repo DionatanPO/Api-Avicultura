@@ -35,12 +35,13 @@ public class Lote {
     private Indice indice;
     
     private String tipo;
+    private String estado;
     private String identificacao;
-    private float peso_inicial;
-    private float peso_final;
-    private float peso_medio;
-    private float racao_inicial;
-    private float racao_final;
+    private int peso_inicial;
+    private int peso_final;
+    private double peso_medio;
+    private int racao_inicial;
+    private int racao_final;
     private Date data_abertura;
     private Date data_abate;
     private int q_aves_inicial;
@@ -52,20 +53,28 @@ public class Lote {
     public Lote() {
     }
 
-    public float getPeso_medio() {
-        return peso_medio;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setPeso_medio(float peso_medio) {
-        this.peso_medio = peso_medio;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Long getId() {
+        return id;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Produtor getProdutor() {
+        return produtor;
+    }
+
+    public void setProdutor(Produtor produtor) {
+        this.produtor = produtor;
     }
 
     public Indice getIndice() {
@@ -76,21 +85,12 @@ public class Lote {
         this.indice = indice;
     }
 
-    
-    public Long getId() {
-        return id;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Produtor getProprietario() {
-        return produtor;
-    }
-
-    public void setProprietario(Produtor produtor) {
-        this.produtor = produtor;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getIdentificacao() {
@@ -101,35 +101,43 @@ public class Lote {
         this.identificacao = identificacao;
     }
 
-    public float getPeso_inicial() {
+    public int getPeso_inicial() {
         return peso_inicial;
     }
 
-    public void setPeso_inicial(float peso_inicial) {
+    public void setPeso_inicial(int peso_inicial) {
         this.peso_inicial = peso_inicial;
     }
 
-    public float getPeso_final() {
+    public int getPeso_final() {
         return peso_final;
     }
 
-    public void setPeso_final(float peso_final) {
+    public void setPeso_final(int peso_final) {
         this.peso_final = peso_final;
     }
 
-    public float getRacao_inicial() {
+    public double getPeso_medio() {
+        return peso_medio;
+    }
+
+    public void setPeso_medio(double peso_medio) {
+        this.peso_medio = peso_medio;
+    }
+
+    public int getRacao_inicial() {
         return racao_inicial;
     }
 
-    public void setRacao_inicial(float racao_inicial) {
+    public void setRacao_inicial(int racao_inicial) {
         this.racao_inicial = racao_inicial;
     }
 
-    public float getRacao_final() {
+    public int getRacao_final() {
         return racao_final;
     }
 
-    public void setRacao_final(float racao_final) {
+    public void setRacao_final(int racao_final) {
         this.racao_final = racao_final;
     }
 
@@ -180,7 +188,6 @@ public class Lote {
     public void setQ_aves_mortas(int q_aves_mortas) {
         this.q_aves_mortas = q_aves_mortas;
     }
-
 
 
 }
