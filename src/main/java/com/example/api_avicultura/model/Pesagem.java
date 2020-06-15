@@ -28,9 +28,18 @@ public class Pesagem {
     private double variacao_peso_medio;
     private double peso_medio;
     private double uniformidade;
+    private String tipo;
 
     public Pesagem() {
 
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Long getId() {
@@ -121,5 +130,4 @@ public class Pesagem {
         this.uniformidade = uniformidade;
     }
 
-   
 }

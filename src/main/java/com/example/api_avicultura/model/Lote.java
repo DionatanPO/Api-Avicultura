@@ -39,7 +39,8 @@ public class Lote {
     private String identificacao;
     private int peso_inicial;
     private int peso_final;
-    private double peso_medio;
+    private int peso_medio;
+
     private int racao_inicial;
     private int racao_final;
     private Date data_abertura;
@@ -56,6 +57,15 @@ public class Lote {
     public String getEstado() {
         return estado;
     }
+
+    public int getPeso_medio() {
+        return peso_medio;
+    }
+
+    public void setPeso_medio(int peso_medio) {
+        this.peso_medio = peso_medio;
+    }
+    
 
     public void setEstado(String estado) {
         this.estado = estado;
@@ -117,13 +127,6 @@ public class Lote {
         this.peso_final = peso_final;
     }
 
-    public double getPeso_medio() {
-        return peso_medio;
-    }
-
-    public void setPeso_medio(double peso_medio) {
-        this.peso_medio = peso_medio;
-    }
 
     public int getRacao_inicial() {
         return racao_inicial;

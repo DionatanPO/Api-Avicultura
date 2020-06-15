@@ -29,12 +29,21 @@ public class Indice {
     private double mortalidade;
     private double viabilidade;
     private double fator_producao;
+     private double ca_duzia;
 
     public Indice() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public double getCa_duzia() {
+        return ca_duzia;
+    }
+
+    public void setCa_duzia(double ca_duzia) {
+        this.ca_duzia = ca_duzia;
     }
 
     public void setId(Long id) {
