@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 /**
  *
  * @author Dionatan
@@ -22,20 +21,28 @@ public class Indice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private double uniformidade;
     private double ica;
     private double consumo_ração;
     private double mortalidade;
     private double viabilidade;
     private double fator_producao;
-     private double ca_duzia;
+    private double ca_duzia;
+    private int qtd_dz;
 
     public Indice() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public int getQtd_dz() {
+        return qtd_dz;
+    }
+
+    public void setQtd_dz(int qtd_dz) {
+        this.qtd_dz = qtd_dz;
     }
 
     public double getCa_duzia() {
@@ -57,8 +64,6 @@ public class Indice {
     public void setFator_producao(double fator_producao) {
         this.fator_producao = fator_producao;
     }
-
-
 
     public double getUniformidade() {
         return uniformidade;
@@ -100,5 +105,4 @@ public class Indice {
         this.viabilidade = viabilidade;
     }
 
-    
 }

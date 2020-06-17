@@ -73,5 +73,17 @@ public class LoteController {
 
         return new ResponseEntity<>(loteList, HttpStatus.OK);
     }
+    
+       @GetMapping(value = "produtorid/desabilitados/")
+    @ResponseBody
+    public ResponseEntity<List<Lote>> buscaLoteDesabilitado(@RequestParam Long produtor_id) {
+      Produtor produtor = new Produtor();
+      produtor.setId(produtor_id);
+      Lote lote = new Lote(); 
+        lote.setProdutor(produtor);
+        List loteList = loteService.buscarLoteProdutorDesabilitado(lote);
+
+        return new ResponseEntity<>(loteList, HttpStatus.OK);
+    }
 
 }

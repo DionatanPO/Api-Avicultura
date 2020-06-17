@@ -34,5 +34,9 @@ public class LoteService {
          String estado = "Ativo";
         return loteRepository.findByProdutor_idAndEstado(lote.getProdutor().getId(),estado);
     }
+      public List buscarLoteProdutorDesabilitado(Lote lote) {
+         String estado = "Desabilitado";
+        return loteRepository.findByProdutor_idAndEstado(lote.getProdutor().getId(),estado);
+    }
 
 }
