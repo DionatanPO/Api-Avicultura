@@ -62,6 +62,7 @@ public class PesagemController {
             return ResponseEntity.notFound().build();
         }
     }
+    
    @GetMapping(value = "loteid/")
     @ResponseBody
     public ResponseEntity<List<Lote>> buscaLote(@RequestParam Long lote_id) {
